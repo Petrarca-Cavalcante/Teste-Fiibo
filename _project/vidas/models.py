@@ -27,4 +27,3 @@ class Vida(models.Model):
     cargo = models.CharField(max_length=50, blank=True, null=True)
     data_de_criacao = models.DateTimeField(auto_now_add=True)
     integracao = models.CharField(choices=Integracao.choices, default=Integracao.PENDENTE)
-    plano = models.ForeignKey()
