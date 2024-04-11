@@ -28,7 +28,7 @@ class Vida_View(APIView):
         return Response(serializer.data, status.HTTP_200_OK)
 
     def patch(self, request, vida_id: str):
-        vida = self.get_object(vida_id)
+        vida = get_object_or_404(Vida, id=vida_id)
         serializer = VidaSerializer(vida, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
@@ -36,6 +36,6 @@ class Vida_View(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, vida_id: str):
-        vida = self.get_object(vida_id)
+        vida = get_object_or_404(Vida, id=vida_id)
         vida.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
