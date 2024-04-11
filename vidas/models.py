@@ -26,4 +26,6 @@ class Vida(models.Model):
     sexo = models.CharField(choices=Sexo.choices, default=Sexo.DEFAULT, max_length=25)
     cargo = models.CharField(max_length=50, blank=True, null=True)
     data_de_criacao = models.DateTimeField(auto_now_add=True)
-    integracao = models.CharField(choices=Integracao.choices, default=Integracao.PENDENTE)
+    integracao = models.CharField(
+        choices=Integracao.choices, max_length=9, default=Integracao.PENDENTE
+    )

@@ -13,7 +13,7 @@ class Planos_view(APIView, PageNumberPagination):
         return Response(serializer.data, status.HTTP_201_CREATED)
 
     def get(self, request: Request) -> Response:
-        planos = Plano.objects.all()
+        planos = Plano.objects.all().order_by("id")
         result_page = self.paginate_queryset(planos, request)
         serializer = PlanoSerializer(result_page, many=True)
         
@@ -36,7 +36,7 @@ class Plano_View(APIView):
         return Response(serializer.data)
     
     def delete(self, request: Request, plano_id: int) -> Response:
-        plano = get_object_or_404(Plano, id=plano_id: int)
+        plano = get_object_or_404(Plano, id=plano_id)
         plano.delete()
         
         return Response(status=status.HTTP_204_NO_CONTENT)

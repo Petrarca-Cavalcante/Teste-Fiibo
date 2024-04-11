@@ -5,4 +5,4 @@ from .models import Plano
 class PlanoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Plano
-        fields = "__all__"
+        exclude = ["vidas"]

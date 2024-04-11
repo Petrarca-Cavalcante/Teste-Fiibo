@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Plano(models.Model):    
+class Plano(models.Model):
     nome = models.CharField(max_length=25)
     servicos = models.TextField(max_length=300)
     valor = models.DecimalField(max_digits=10, decimal_places=2)

@@ -12,28 +12,27 @@ class Vidas_View(APIView, PageNumberPagination):
         serializer.save()
 
         return Response(serializer.data, status.HTTP_201_CREATED)
-    
-    def get(self, request: Request) -> Response: 
-        vidas = Vida.objects.all()
+
+    def get(self, request: Request) -> Response:
+        vidas = Vida.objects.all().order_by("data_de_criacao")
         page = self.paginate_queryset(vidas, request)
         serializer = VidaSerializer(page, many=True)
         return self.get_paginated_response(serializer.data)
 
 
 class Vida_View(APIView):
-    
+
     def get(self, request: Request, vida_id) -> Response:
         vida = get_object_or_404(Vida, id=vida_id)
         serializer = VidaSerializer(vida)
         return Response(serializer.data, status.HTTP_200_OK)
-
 
     def patch(self, request, vida_id: str):
         vida = self.get_object(vida_id)
         serializer = VidaSerializer(vida, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status= status.HTTP_202_ACCEPTED)
+            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, vida_id: str):
