@@ -32,7 +32,7 @@ Após extrair o .zip do projeto e acessar a pasta Xlsx_Extractor é necessário:
 | sexo       | choicefield | sexo da vida ( Masculino, Feminino, Not Inf)|
 | cargo      | string | cargo da vida.                                   |
 | data_da_criacao | DateTimeField | Data de inclusão no sistema. |
-| integracao | choicefield | Status de integração (Pendente, Integrado, Revisar |
+| integracao | choicefield | Status de integração (Pendente, Integrado, Revisar) |
 
 
 
