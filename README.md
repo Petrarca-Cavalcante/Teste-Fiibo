@@ -507,7 +507,7 @@ Vazio
 
 
 
-OBS.: Chaves não presentes no schema serão remoplanos.
+OBS.: Chaves não presentes no schema serão removidas.
 
 ### 4 - **Atualização de plano**
 
@@ -594,5 +594,5 @@ Vazio
 
 
 
-OBS.: Chaves não presentes no schema serão remoplanos.
+OBS.: Chaves não presentes no schema serão removidas.
 
